@@ -1,6 +1,8 @@
 #include <stdio.h>
 /**
  * main - disply a messege
+ * @void: No parameters
+ * Return: 0
  */
 int main(void)
 {
