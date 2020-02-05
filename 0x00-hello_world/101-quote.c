@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <unistd.h>
 /**
- * main - disply a messege
+ * main - print a message to the standard error
  * @void: No parameters
- * Return: 0
+ * Return: 1
  */
 int main(void)
 {
