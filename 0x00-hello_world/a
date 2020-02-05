@@ -1,0 +1,7 @@
+total 20
+drwxrwxr-x 2 vagrant vagrant 4096 Feb  5 10:36 .
+drwxrwxr-x 5 vagrant vagrant 4096 Feb  5 09:39 ..
+-rw-rw-r-- 1 vagrant vagrant   28 Feb  5 10:30 0-preprocessor
+-rw-rw-r-- 1 vagrant vagrant   25 Feb  5 10:27 0-preprocessor~
+-rw-rw-r-- 1 vagrant vagrant    0 Feb  5 10:36 a
+-rw-rw-r-- 1 vagrant vagrant   16 Feb  5 09:40 README.md
