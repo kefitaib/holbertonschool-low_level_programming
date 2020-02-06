@@ -6,12 +6,12 @@
  */
 int main(void)
 {
-int i, j, k, x = 0, y = 0;
+int i, j, k, x = 0;
 for (i = 48  ; i < 56 ; i++)
 {
 for (j = 48 + x ; j < 57 ; j++)
 {
-for (k = 48 + y ; k < 58 ; k++)
+for (k = 48 + x ; k < 58 ; k++)
 {
 if (((j != i) && (i != k) && (k != j)) || (i + j + k == 168))
 {
