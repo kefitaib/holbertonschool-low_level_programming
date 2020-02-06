@@ -2,6 +2,7 @@
 *~
 *.out
 *.s
+Betty
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
