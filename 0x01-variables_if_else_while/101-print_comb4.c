@@ -19,7 +19,7 @@ putchar(i);
 putchar(j);
 putchar(k);
 }
-if (((i + j + k) < 168) && ((j != i) && (i != k) && (k != j)))
+if ((i + j + k < 168) || ((j != i) && (i != k) && (k != j)))
 {
 putchar(',');
 putchar(' ');
