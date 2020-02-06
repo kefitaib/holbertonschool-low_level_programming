@@ -6,14 +6,18 @@
  */
 int main(void)
 {
-int i, j;
+int i, j, x = 0;
 for (i = 48  ; i < 58 ; i++)
 {
 for (j = 48 ; j < 58 ; j++)
 {
 putchar(i);
 putchar(j);
-if (j < 57)
+if ((j == 57) && (i == 57))
+{
+x = 1;
+}
+if (x == 0)
 {
 putchar(',');
 putchar(' ');
