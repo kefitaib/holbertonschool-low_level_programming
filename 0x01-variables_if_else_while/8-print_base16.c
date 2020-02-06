@@ -8,9 +8,9 @@ int main(void)
 {
 int x;
 char c;
-for (x = 48 ; x <= 58 ; c++)
+for (x = 48 ; x < 58 ; x++)
 {
-putchar(c);
+putchar(x);
 }
 for (c = 'A' ; c <= 'F' ; c++)
 {
