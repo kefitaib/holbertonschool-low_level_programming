@@ -21,9 +21,11 @@ if (y == 0)
 {
 _putchar(w + '0');
 if (j < 9)
+{
 _putchar(',');
-if (y2 == 0)
 _putchar(' ');
+}
+if ((y2 == 0) && (j < 9))
 _putchar(' ');
 }
 else
@@ -31,8 +33,10 @@ else
 _putchar(y + '0');
 _putchar(w + '0');
 if (j < 9)
+{
 _putchar(',');
 _putchar(' ');
+}
 }
 }
 _putchar('\n');
