@@ -11,7 +11,7 @@ long int f1 = 0, f2 = 0, sum = 0, sum_even;
 f1 = 2;
 f2 = 3;
 sum_even = f1;
-while(sum <= 4000000)
+while (sum <= 4000000)
 {
 sum = f1 + f2;
 if (sum % 2 == 0)
