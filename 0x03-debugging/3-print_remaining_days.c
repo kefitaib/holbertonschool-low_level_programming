@@ -19,7 +19,7 @@ if (year % 100 == 0)
 {
 if (year % 400 == 0)
 {
-if (month >= 2 && day >= 60)
+if (month > 2 && day >= 60)
 {
 day++;
 }
