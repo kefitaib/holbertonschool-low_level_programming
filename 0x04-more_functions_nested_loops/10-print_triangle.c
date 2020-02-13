@@ -14,7 +14,7 @@ for (i = 0 ; i < size ; i++)
 {
 for (j = 0 ; j < (size - x) ; j++)
 _putchar(' ');
-for (k = (size - x) ; k < size ; k++) 
+for (k = (size - x) ; k < size ; k++)
 _putchar('#');
 _putchar('\n');
 x++;
