@@ -7,36 +7,29 @@
 
 void print_number(int n)
 {
-int m, s, d, u, n1 = n;
+int x, j, i = 0, n1, n2 = n, k = 1;
 if (n < 0)
 n = -n;
-u = n % 10;
-n /= 10;
-d = n % 10;
-n /= 10;
-s = n % 10;
-n /= 10;
-m = n % 10;
-if (n1 < 0)
-_putchar('-');
-if (m > 0)
+n1 = n;
+while (n > 0)
 {
-_putchar(m + '0');
-_putchar(s + '0');
-_putchar(d + '0');
-_putchar(u + '0');
+n = n / 10;
+i++;
+k *= 10;
 }
-else if (s > 0)
-{
-_putchar(s + '0');
-_putchar(d + '0');
-_putchar(u + '0');
-}
-else if (d > 0)
-{
-_putchar(d + '0');
-_putchar(u + '0');
-}
+k /= 10;
+if (n2 == 0)
+_putchar(48);
 else
-_putchar(u + '0');
+{
+if (n2 < 0)
+_putchar('-');
+for (j = 0 ; j < i ; j++)
+{
+x = n1 / k;
+_putchar(x + '0');
+n1 = n1 % k;
+k /= 10;
+}
+}
 }
