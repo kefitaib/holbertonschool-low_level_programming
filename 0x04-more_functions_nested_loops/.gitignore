@@ -1,0 +1,14 @@
+# -*- mode: gitignore; -*-
+*~
+*.out
+*.s
+Betty
+*-main.c
+_putchar.c
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
