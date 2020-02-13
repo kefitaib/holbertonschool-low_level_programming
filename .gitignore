@@ -3,6 +3,8 @@
 *.out
 *.s
 Betty
+*-main.c
+_putchar.c
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
