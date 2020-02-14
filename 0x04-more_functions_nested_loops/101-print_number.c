@@ -7,7 +7,7 @@
 
 void print_number(int n)
 {
-  int x, j, i = 0, n1, n2 = n, k = 1;
+int x, j, i = 0, n1, n2 = n, k = 1;
 if (n == 0)
 _putchar(48);
 else
@@ -30,7 +30,7 @@ k *= 10;
 for (j = 0 ; j < i ; j++)
 {
 x = n1 / k;
-if (n2 == -2147483648 && j == i -1)
+if (n2 == -2147483648 && j == i - 1)
 x += 1;
 _putchar(x + '0');
 n1 = n1 % k;
