@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * reset_to_98 - akes a pointer to an int as parameter and updates the value.
- * @*a : integer
- * @*b : integer
+ * swap_int - swaps the values of two integers.
+ * @*a : integer.
+ * @*b : integer.
  * Return: void.
  */
 
