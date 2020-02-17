@@ -13,7 +13,7 @@ int i = 0, j, k = 0, l = 0;
 while (s[i] != '\0')
 i++;
 
-for (j = i -1 ; j >= 0 ; j--)
+for (j = i - 1 ; j >= 0 ; j--)
 {
 s1[k] = s[j];
 k++;
