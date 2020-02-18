@@ -12,7 +12,7 @@ int x, j = 0, i = 0;
 while (str[i] != '\0')
 i++;
 if (i % 2 != 0)
-x = (i - 1) / 2;
+x = (i / 2) + 1;
 else
 x = i / 2;
 for (j = x ; j < i ; j++)
