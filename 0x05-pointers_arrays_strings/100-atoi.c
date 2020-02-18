@@ -24,12 +24,10 @@ i++;
 }
 if (minus % 2 != 0)
 {
-/* if (-r >= -2147483648) */
 return (-r);
 }
 else if (minus % 2 == 0)
 {
-/* if (r <= 2147483647) */
 return (r);
 }
 else
