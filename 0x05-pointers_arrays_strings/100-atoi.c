@@ -13,9 +13,9 @@ while (s[i] != '\0')
 {
 if (s[i] == '-')
 minus++;
-i++;
 if (s[i] >= '0' && s[i] <= '9')
 break;
+i++;
 }
 while (s[i] >= '0' && s[i] <= '9')
 {
