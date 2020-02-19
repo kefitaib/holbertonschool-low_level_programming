@@ -8,7 +8,7 @@
 
 int _atoi(char *s)
 {
-int i = 0, r = 0, minus = 0;
+unsigned int i = 0, r = 0, minus = 0, x = 0;
 while (s[i] != '\0')
 {
 if (s[i] == '-')
@@ -21,11 +21,17 @@ while (s[i] >= '0' && s[i] <= '9')
 {
 if ((r * 10) + (s[i] - 48) > 2147483647 && (minus % 2 == 0))
 break;
-else if ((((r * 10) + (s[i] - 48)) * -1) <= -2147483648 && (minus % 2 != 0))
+else if (((r * 10) + (s[i] - 48)) > 2147483648 && (minus % 2 != 0))
 break;
 else
 {
-r = (r * 10) + (s[i] - 48);
+if (minus % 2 != 0 && x != 0)
+{
+r = ((r * 10) + (s[i] - 48)) * -1;
+x = 1;
+}
+else
+r = ((r * 10) + (s[i] - 48));
 i++;
 }
 }
