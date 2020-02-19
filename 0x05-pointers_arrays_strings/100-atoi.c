@@ -19,19 +19,20 @@ i++;
 }
 while (s[i] >= '0' && s[i] <= '9')
 {
-r = (r * 10) + (s[i] - 48);
-if (r > 2147483647 || -r < -2147483647)
+if ((r * 10) + (s[i] - 48) > 2147483647 && (minus % 2 == 0))
 break;
+else if ((((r * 10) + (s[i] - 48)) * -1) <= -2147483648 && (minus % 2 != 0))
+break;
+else
+{
+r = (r * 10) + (s[i] - 48);
 i++;
 }
+}
 if (minus % 2 != 0)
-{
 return (-r);
-}
 else if (minus % 2 == 0)
-{
 return (r);
-}
 else
 return (0);
 }
