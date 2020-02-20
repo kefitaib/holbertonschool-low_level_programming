@@ -13,7 +13,7 @@ int i = 0, j;
 while (s[i] != '\0')
 {
 j = 0;
-while (j < 26)
+while (j < 52)
 {
 if (s[i] == s1[j])
 s[i] = s2[j];
