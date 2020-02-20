@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * *leet - encodes a string into 1337.
  * @s : string.
@@ -10,12 +9,7 @@ char *leet(char *s)
 {
 int i = 0, j;
 char s1[8] = {'o', 'l', '\0', 'e', 'a', '\0', '\0', 't'};
-/* s1[0] = 'o';
- * s1[1] = 'l';
- * s1[3] = 'e';
- * s1[4] = 'a';
- * s1[7] = 't';
- s1[8] = '\0'; */
+s1[8] = '\0';
 while (s[i] != '\0')
 {
 j = 0;
