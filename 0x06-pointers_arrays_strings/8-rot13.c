@@ -7,20 +7,18 @@
 
 char *rot13(char *s)
 {
-int i = 0;
+char s1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+int i = 0, j;
 while (s[i] != '\0')
 {
-if ((s[i] < 110 && s[i] >= 97) || (s[i] < 78 && s[i] >= 65))
+j = 0;
+while (j < 26)
 {
-s[i] += 13;
-i++;
+if (s[i] == s1[j])
+s[i] = s2[j];
+j++;
 }
-else if ((s[i] >= 110 && s[i] <= 122) || (s[i] >= 78 && s[i] <= 90))
-{
-s[i] -= 13;
-i++;
-}
-else
 i++;
 }
 return (s);
