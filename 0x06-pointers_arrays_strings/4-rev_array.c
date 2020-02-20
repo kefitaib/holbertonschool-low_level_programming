@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * _strcmp - compares two strings.
- * @s1 : first string.
- * @s2 : second string.
+ * reverse_array - compares two strings.
+ * @a : array of integers.
+ * @n : lenght of the array.
  * Return: Always 0.
  */
 
