@@ -1,4 +1,23 @@
 #include "holberton.h"
+
+/**
+ * reverse - compares two strings.
+ * @a : array of integers.
+ * @n : lenght of the array.
+ * Return: Always 0.
+ */
+
+void reverse(char *a, int n)
+{
+int i, j = 0;
+for (i = 0 ; i < n / 2 ; i++)
+{
+j = a[i];
+a[i] = a[n - i];
+a[n - i] = j;
+}
+}
+
 /**
  * infinite_add - encodes a string into 1337.
  * @n1 : first integer.
@@ -10,8 +29,7 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-char r_tmp[509];
-int i, j, k = 0, l, x = 0, sum = 0;
+int i, j, k = 0, x = 0, sum = 0;
 for (i = 0; n1[i] != '\0'; i++)
 ;
 for (j = 0; n2[j] != '\0'; j++)
@@ -29,20 +47,21 @@ if (i >= 0)
 sum += n1[i] - '0';
 if (j >= 0)
 sum += n2[j] - '0';
-r_tmp[k] = (sum % 10) + '0';
+r[k] = (sum % 10) + '0';
 x = sum / 10;
 if (x > 0)
-r_tmp[k + 1] = x + '0';
+r[k + 1] = x + '0';
 i--;
 j--;
 k++;
 }
+
 if (x == 0)
 k--;
-for (l = 0; k >= 0; k--, l++)
-r[l] = r_tmp[k];
-for (; l <= size_r ; l++)
-r[l] = '\0';
+
+reverse(r, k);
+for (i = k + 1; i <= size_r ; i++)
+r[i] = '\0';
 return (r);
 }
 }
