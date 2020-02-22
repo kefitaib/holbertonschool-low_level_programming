@@ -37,6 +37,8 @@ i--;
 j--;
 k++;
 }
+if (x == 0)
+k--;
 for (l = 0; k >= 0; k--, l++)
 r[l] = r_tmp[k];
 for (; l <= size_r ; l++)
