@@ -9,14 +9,15 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-int i;
-while (s++)
+int i, j = 0;
+while (s[j] != '\0')
 {
 i = 0;
-while (accept[i] != '\0' && accept[i] != *s)
+while (accept[i] != '\0' && accept[i] != s[j])
 i++;
 if (accept[i] != '\0')
-return (s);
+return (s + j);
+j++;
 }
 return (0);
 }
