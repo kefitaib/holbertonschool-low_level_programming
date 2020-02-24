@@ -12,12 +12,10 @@ int i = 0, j;
 while (s[i] != '\0')
 {
 j = 0;
-while (accept[j] != '\0')
-{
-if (s[i] == accept[j])
-break;
+
+while (accept[j] != '\0' && accept[j] != s[i])
 j++;
-}
+
 if (accept[j] == '\0')
 break;
 i++;
