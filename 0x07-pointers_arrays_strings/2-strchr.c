@@ -10,6 +10,8 @@
 char *_strchr(char *s, char c)
 {
 char *st = s;
+if (s == NULL)
+return (0);
 while (st++)
 {
 if (*st == c)
