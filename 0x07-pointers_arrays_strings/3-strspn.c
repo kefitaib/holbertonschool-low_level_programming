@@ -8,18 +8,19 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-int i = 0;
-while (s++)
+int i = 0, j;
+while (s[i] != '\0')
 {
-i = 0;
-while (accept[i] != '\0')
+j = 0;
+while (accept[j] != '\0')
 {
-if (*s == accept[i])
+if (s[i] == accept[j])
+break;
+j++;
+}
+if (accept[j] == '\0')
 break;
 i++;
 }
-if (accept[i] == '\0')
-break;
-}
-return (i + 1);
+return (i);
 }
