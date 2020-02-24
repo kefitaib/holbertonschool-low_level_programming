@@ -17,6 +17,8 @@ for (j = 0; j < 8; j++)
 c = a[i][j];
 if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 _putchar(a[i][j]);
+else
+_putchar(' ');
 }
 _putchar('\n');
 }
