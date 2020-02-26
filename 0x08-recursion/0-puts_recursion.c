@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _puts_recursion - check the code for Holberton School students.
+ * _puts_recursion - prints a string.
  * @s : string.
  * Return: Always 0.
  */
