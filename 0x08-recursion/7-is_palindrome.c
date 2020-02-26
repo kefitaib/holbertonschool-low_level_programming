@@ -21,16 +21,16 @@ return (_strlen_recursion(s + 1) + 1);
  * Return: integer.
  */
 
-int palin(char *p, int x, int x1)
+int palin(char *p, int x)
 {
-if (x <= x1)
+if (x <= 0)
 return (0);
 else
 {
 if (*p == p[x])
 return (1);
 else
-return (palin(p++, x--, x1));
+return (palin(++p, --x));
 }
 }
 
@@ -44,8 +44,7 @@ return (palin(p++, x--, x1));
 int is_palindrome(char *s)
 {
 char *p = s;
-int x = -1, x1 = 0;
+int x = -1;
 x += _strlen_recursion(s);
-x1 = x / 2;
-return (palin(p, x, x1));
+return (palin(p, x));
 }
