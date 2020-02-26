@@ -17,7 +17,6 @@ return (_strlen_recursion(s + 1) + 1);
  * palin - test if a string is a palindrome.
  * @p : string.
  * @x : integer.
- * @x1 : integer.
  * Return: integer.
  */
 
