@@ -6,6 +6,7 @@ Betty
 *-main.c
 _putchar.c
 yo
+*.o
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
