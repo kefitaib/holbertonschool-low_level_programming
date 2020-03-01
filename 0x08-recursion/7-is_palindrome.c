@@ -27,9 +27,8 @@ return (0);
 else
 {
 if (*p == p[x])
-return (1);
-else
 return (palin(++p, --x));
+return (1);
 }
 }
 
