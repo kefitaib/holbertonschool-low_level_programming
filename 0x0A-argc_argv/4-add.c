@@ -28,6 +28,6 @@ return (0);
 else
 {
 printf("0\n");
-return(1);
 }
+return (0);
 }
