@@ -14,7 +14,7 @@ if (argc > 1)
 {
 for (i = 1; i < argc; i++)
 {
-if (atoi(argv[i]) >= 0)
+if (atoi(argv[i]) > 0)
 sum += atoi(argv[i]);
 else
 {
@@ -28,6 +28,6 @@ return (0);
 else
 {
 printf("0\n");
-return (0);
+return(1);
 }
 }
