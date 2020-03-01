@@ -21,6 +21,8 @@ for (i = 0; i < 5; i++)
 {
 sum += x / coin[i];
 x %= coin[i];
+if (x == 0)
+break;
 }
 printf("%d\n", sum);
 }
