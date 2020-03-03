@@ -11,7 +11,7 @@ int _strlen(char *str1)
 {
 if (*str1 == '\0')
 return (0);
-return(_strlen(++str1) + 1);
+return (_strlen(++str1) + 1);
 }
 
 
@@ -37,6 +37,6 @@ else
 {
 for (i = 0; i < size; i++)
 p[i] = str[i];
-return (p); 
+return (p);
 }
 }
