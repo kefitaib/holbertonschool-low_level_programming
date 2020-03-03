@@ -36,6 +36,8 @@ if (s2 != NULL)
 size2 = _strlen(s2);
 sizep = size1 + size2;
 p = malloc(sizeof(char) * sizep);
+if (p == NULL)
+return (NULL);
 while (s1[i] != '\0')
 {
 p[i] = s1[i];
