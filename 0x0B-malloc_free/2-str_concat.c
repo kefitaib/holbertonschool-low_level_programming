@@ -28,10 +28,10 @@ int i = 0, j = 0, size1 = 0, size2 = 0, sizep = 0;
 char *p;
 
 if (s1 == NULL)
-*s1 = '\0';
+s1 = '\0';
 
 if (s2 == NULL)
-*s2 = '\0';
+s2 = '\0';
 
 size1 = _strlen(s1);
 size2 = _strlen(s2);
