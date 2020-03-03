@@ -56,6 +56,9 @@ char **strtow(char *str)
 {
 int i, j = 0, k = 0, l, heigth = 0, width;
 char **p = NULL;
+if (str == NULL || *str == '\0')
+return (NULL);
+
 heigth = _heigth(str);
 p = malloc(sizeof(char *) * heigth + 1);
 if (p == NULL)
