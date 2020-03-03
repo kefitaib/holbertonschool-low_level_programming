@@ -15,15 +15,12 @@ if (width < 1 || height < 1)
 return (NULL);
 else
 {
-p = malloc((sizeof(int *) * height) * (sizeof(int) * width));
-if (p == NULL)
-return (NULL);
-else
-{
-free(p);
 p = malloc(sizeof(int *) * height);
 if (p == NULL)
+{
+free(p);
 return (NULL);
+}
 for (i = 0; i < height; i++)
 {
 p[i] = malloc(sizeof(int) * width);
@@ -33,6 +30,5 @@ for (j = 0; j < width; j++)
 p[i][j] = 0;
 }
 return (p);
-}
 }
 }
