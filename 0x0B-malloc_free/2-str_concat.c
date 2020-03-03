@@ -30,13 +30,13 @@ char *p;
 if (s1 == NULL)
 {
 s1 = malloc(sizeof(char));
-s1 = '\0';
+*s1 = '\0';
 }
 
 if (s2 == NULL)
 {
 s2 = malloc(sizeof(char));
-s2 = '\0';
+*s2 = '\0';
 }
 
 size1 = _strlen(s1);
