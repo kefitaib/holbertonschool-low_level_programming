@@ -17,12 +17,11 @@ else
 {
 p = malloc((sizeof(int *) * height) * (sizeof(int) * width));
 if (p == NULL)
-{
 return (NULL);
-free(p);  
-}
+
 else
 {
+free(p);
 p = malloc(sizeof(int *) * height);
 for (i = 0; i < height; i++)
 {
