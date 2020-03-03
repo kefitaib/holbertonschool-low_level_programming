@@ -64,8 +64,6 @@ p = malloc(sizeof(char *) * heigth + 1);
 if (p == NULL)
 return (NULL);
 
-if (heigth > 0)
-{
 for (i = 0; i < heigth; i++)
 {
 
@@ -87,7 +85,7 @@ for (l = 0; l < width; l++, j++)
 p[i][l] = str[j];
 p[i][l] = '\0';
 }
-}
+
 if (allocation(p, i, width) == 0)
 return (NULL);
 
