@@ -25,14 +25,14 @@ return (_strlen(++s) + 1);
 char *str_concat(char *s1, char *s2)
 {
 int i = 0, j = 0, size1 = 0, size2 = 0, sizep = 0;
-char *p = '\0';
-if (*s1 == '\0' && *s2 == '\0')
-return (p);
+char *p;
+if (s1 == NULL && s2 == NULL)
+return (NULL);
 else
 {
-if (s1 != NULL)
+if (*s1 != '\0')
 size1 = _strlen(s1);
-if (s2 != NULL)
+if (*s2 != '\0')
 size2 = _strlen(s2);
 sizep = size1 + size2 + 1;
 p = malloc(sizeof(char) * sizep);
