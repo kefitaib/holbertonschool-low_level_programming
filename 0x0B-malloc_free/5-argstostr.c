@@ -11,7 +11,7 @@
 int _size(char **av, int ac)
 {
 int i, j, size = 0;
-for (i = 0; i <= ac; i++)
+for (i = 0; i < ac; i++)
 {
 for (j = 0; av[i][j] != '\0'; j++)
 size++;
@@ -40,7 +40,7 @@ p = malloc(sizeof(char) * size);
 if (p == NULL)
 return (NULL);
 
-for (i = 0; i <= ac; i++)
+for (i = 0; i < ac; i++)
 {
 j = 0;
 while (av[i][j] != '\0')
