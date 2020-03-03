@@ -34,7 +34,7 @@ if (s1 != NULL)
 size1 = _strlen(s1);
 if (s2 != NULL)
 size2 = _strlen(s2);
-sizep = size1 + size2;
+sizep = size1 + size2 + 1;
 p = malloc(sizeof(char) * sizep);
 if (p == NULL)
 return (NULL);
