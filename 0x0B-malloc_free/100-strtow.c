@@ -1,6 +1,30 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+
+/**
+ * allocation - allocate a space memory for a pointer.
+ * @p : pointer to ponter of string.
+ * @i : current row of "p".
+ * @width : width of the current row.
+ * Return: void.
+ */
+
+int allocation(char **p, int i, int width)
+{
+p[i] = malloc(sizeof(char) * width + 1);
+if (p[i] == NULL)
+{
+for (; i >= 0; i--)
+free(p[i]);
+free(p);
+return (0);
+}
+return (1);
+}
+
+
+
 /**
  * _heigth - return heigth or an array.
  * @str : string.
@@ -38,35 +62,29 @@ if (p == NULL)
 return (NULL);
 for (i = 0; i < heigth; i++)
 {
+
 while (str[j] == ' ')
 j++;
 width = 0;
 k = j;
+
 while (str[k] != ' ')
 {
 width++;
 k++;
 }
-p[i] = malloc(sizeof(char) * width + 1);
-if (p[i] == NULL)
-{
-for (; i >= 0; i--)
-free(p[i]);
-free(p);
+
+if (allocation(p, i, width) == 0)
 return (NULL);
-}
+
 for (l = 0; l < width; l++, j++)
 p[i][l] = str[j];
-p[i][width] = '\0';
+p[i][l] = '\0';
 }
-p[i] = malloc(sizeof(char));
-if (p[i] == NULL)
-{
-for (; i >= 0; i--)
-free(p[i]);
-free(p);
+
+if (allocation(p, i, width) == 0)
 return (NULL);
-}
+
 p[i] = NULL;
 return (p);
 }
