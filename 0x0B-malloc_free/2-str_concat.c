@@ -60,7 +60,5 @@ j++;
 i++;
 }
 p[i] = '\0';
-free(s1);
-free(s2);
 return (p);
 }
