@@ -13,7 +13,7 @@
 int *array_range(int min, int max)
 {
 int *tab;
-int i;
+int i, j;
 if (min > max)
 return (NULL);
 
@@ -21,8 +21,8 @@ tab = malloc(sizeof(int) * (max - min + 1));
 if (tab == NULL)
 return (NULL);
 
-for (i = min; i <= max; i++)
-tab[i] = i;
+for (i = min, j = 0; i <= max; i++, j++)
+tab[j] = i;
 
 return (tab);
 }
