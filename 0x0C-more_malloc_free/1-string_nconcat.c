@@ -32,10 +32,16 @@ unsigned int i, j, size1 = 0, size2 = 0, sizer = 0;
 char *sr;
 
 if (s1 == NULL)
+{
+s1 = malloc(sizeof(char));
 s1[0] = '\0';
+}
 
 if (s2 == NULL)
+{
+s2 = malloc(sizeof(char));
 s2[0] = '\0';
+}
 
 size1 = _strlen(s1);
 size2 = _strlen(s2);
