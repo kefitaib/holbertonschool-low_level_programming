@@ -32,8 +32,7 @@ unsigned int i, j, size1 = 0, size2 = 0, sizer = 0;
 char *sr;
 
 if (s1 == NULL)
-s1[0] = "";
-
+s1 = "";
 
 if (s2 == NULL)
 s2 = "";
