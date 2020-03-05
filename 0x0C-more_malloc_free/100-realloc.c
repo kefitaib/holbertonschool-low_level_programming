@@ -16,12 +16,16 @@ if (new_size > old_size)
 {
 free(ptr);
 ptr = malloc(new_size);
+if (ptr == NULL)
+return (NULL);
 return (ptr);
 }
 
 if (ptr == NULL)
 {
 ptr = malloc(new_size);
+if (ptr == NULL)
+return (NULL);
 return (ptr);
 }
 
@@ -34,4 +38,5 @@ free(ptr);
 return (NULL);
 }
 
+return (ptr);
 }
