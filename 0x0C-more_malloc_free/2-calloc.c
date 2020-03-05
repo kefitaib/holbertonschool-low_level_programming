@@ -20,7 +20,7 @@ if (tab == NULL)
 return (NULL);
 
 for (i = 0; i < nmemb ; i++)
-tab[i] = '0';
+tab[i] = 0;
 
 return (tab);
 }
