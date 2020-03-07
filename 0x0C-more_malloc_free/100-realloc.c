@@ -13,6 +13,7 @@
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *ptr1, *ptr2;
+	unsigned int i = 0;
 
 	if (ptr == NULL)
 	{
@@ -29,10 +30,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		ptr = malloc(new_size);
 		if (ptr == NULL)
 			return (NULL);
-		if (ptr1)
+		ptr2 = ptr;
+		while (*ptr1)
 		{
-			ptr2 = ptr;
-			bcopy(ptr1, ptr2, old_size);
+			ptr2[i++] = *ptr1++;
 		}
 		return (ptr);
 	}
