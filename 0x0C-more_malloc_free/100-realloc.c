@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <string.h>
 /**
  * *_realloc - prints buffer in hexato the memory previously allocated.
  * @ptr : pointer.
@@ -29,7 +29,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		ptr = malloc(new_size);
 		if (ptr == NULL)
 			return (NULL);
-		if (*ptr1 != '\0')
+		if (strlen(ptr1) > 0)
 		{
 			ptr2 = ptr;
 			while (i < old_size)
