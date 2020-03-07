@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * *_realloc - prints buffer in hexato the memory previously allocated.
