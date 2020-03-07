@@ -19,7 +19,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		ptr1 = ptr;
 		free(ptr);
 		ptr2 = malloc(new_size);
-		if (ptr == NULL)
+		if (ptr2 == NULL)
 			return (NULL);
 		while (i < old_size)
 		{
