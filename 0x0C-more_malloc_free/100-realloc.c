@@ -1,22 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
-/**
- * *_memcpy - encodes a string into 1337.
- * @dest : destination string.
- * @src : source string.
- * @n : first bytes of src.
- * Return: Always 0.
- */
-
-void *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int i;
-	for (i = 0; i < n; i++)
-		dest[i] = src[i];
-	return (dest);
-}
-
+#include <string.h>
 
 /**
  * *_realloc - prints buffer in hexato the memory previously allocated.
@@ -45,8 +29,11 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		ptr = malloc(new_size);
 		if (ptr == NULL)
 			return (NULL);
-		ptr2 = ptr;
-		_memcpy(ptr2, ptr1, old_size);
+		if (ptr1)
+		{
+			ptr2 = ptr;
+			bcopy(ptr1, ptr2, old_size);
+		}
 		return (ptr);
 	}
 
