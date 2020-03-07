@@ -18,15 +18,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		ptr1 = ptr;
 		free(ptr);
-		ptr2 = malloc(new_size);
-		if (ptr2 == NULL)
+		ptr = malloc(new_size);
+		if (ptr == NULL)
 			return (NULL);
+		ptr2 = ptr;
 		while (i < old_size)
 		{
 			ptr2[i] = ptr1[i];
 			i++;
 		}
-		return (ptr2);
+		return (ptr);
 	}
 
 	if (ptr == NULL)
