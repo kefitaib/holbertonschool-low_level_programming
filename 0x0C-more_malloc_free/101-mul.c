@@ -158,6 +158,11 @@ int main(int argc, char **argv)
 		;
 
 	res = malloc(sizeof(char) * (arg1 + arg2 + 1));
+	if (res == NULL)
+	{
+		print_error();
+		exit(98);
+	}
 
 	k = calcul(arg1, arg2, argv[1], argv[2], res);
 
