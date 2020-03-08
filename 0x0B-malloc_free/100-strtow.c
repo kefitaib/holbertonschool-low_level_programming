@@ -64,7 +64,7 @@ char **strtow(char *str)
 		return (NULL);
 
 	heigth = _heigth(str);
-	p = malloc(sizeof(char *) * heigth);
+	p = malloc(sizeof(char *) * heigth + 1);
 	if (p == NULL)
 		return (NULL);
 
@@ -90,5 +90,6 @@ char **strtow(char *str)
 		p[i][l] = '\0';
 	}
 
+	p[i] = NULL;
 	return (p);
 }
