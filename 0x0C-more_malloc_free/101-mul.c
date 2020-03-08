@@ -145,7 +145,7 @@ int main(int argc, char **argv)
 	if (is_null(argv[1]) == 0 || is_null(argv[2]) == 0)
 	{
 	_putchar('0');
-	_putchar('0');
+	_putchar('\n');
 	return (0);
 	}
 
