@@ -161,7 +161,7 @@ int main(int argc, char **argv)
 	if (res == NULL)
 	{
 		print_error();
-		return (1);
+		exit(98);
 	}
 
 	k = calcul(arg1, arg2, argv[1], argv[2], res);
