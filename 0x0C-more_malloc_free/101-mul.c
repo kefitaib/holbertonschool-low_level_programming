@@ -1,7 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
-
 
 /**
  * print_error - print "Error" with putchar.
@@ -11,14 +9,38 @@
 
 void print_error(void)
 {
-_putchar('E');
-_putchar('r');
-_putchar('r');
-_putchar('o');
-_putchar('r');
-_putchar('\n');
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
+	_putchar('\n');
 }
 
+/**
+ * print_result - print the result of the multiplication.
+ * @k : position of start of printing.
+ * @res : pointer of the string to print.
+ * Return: void.
+ */
+
+void print_result(int k, char *res)
+{
+	int x = 0, i;
+
+	if (res[k] == 48)
+	{
+		res[k] = '\0';
+		x = k - 1;
+	}
+	else
+		x = k;
+	res[k + 1] = '\0';
+
+	for (i = x; i >= 0; i--)
+		_putchar(res[i]);
+	_putchar('\n');
+}
 
 /**
  * is_number - check a string if it's contain only digits.
@@ -29,30 +51,15 @@ _putchar('\n');
 
 int is_number(char *s)
 {
-int x = 0;
-while (*s++)
-if (*s < 48 && *s > 58)
-{
-x = 1;
-break;
-}
-return (x);
-}
+	int i = 0;
 
-
-/**
- * _atoi -  return a pointer of integer from a string.
- * @tab : pointer od intager.
- * @arg : string.
- *
- * Return: Nothing.
- */
-
-void _atoi(int tab[], char *arg)
-{
-int i;
-for (i = 0; arg[i] != '\0'; i++)
-tab[i] = arg[i] - '0';
+	while (s[i] != '\0')
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 
@@ -66,39 +73,44 @@ tab[i] = arg[i] - '0';
 
 int main(int argc, char **argv)
 {
-int x = 0, arg1, arg2, i, j, *tab1, *tab2, *s;
+	int x = 0, arg1 = 0, arg2 = 0, i, j, k, l = 0;
+	char *res;
 
-if (argc != 3)
-{
-print_error();
-exit(98);
-}
+	if (argc != 3)
+	{
+		print_error();
+		exit(98);
+	}
+	if (is_number(argv[1]) == 1 || is_number(argv[2]) == 1)
+	{
+		print_error();
+		exit(98);
+	}
+	for (arg1 = 0; argv[1][arg1] != '\0'; arg1++)
+		;
+	for (arg2 = 0; argv[2][arg2] != '\0'; arg2++)
+		;
+	res = malloc(sizeof(char) * (arg1 + arg2 + 1));
+	if (res == NULL)
+	{
+		print_error();
+		exit(98);
+	}
+	for (i = arg1 - 1; i >= 0; i--, l++)
+	{
+		k = l;
+		for (j = arg2 - 1; j >= 0; j--)
+		{
+			x = (argv[2][j] - '0') * (argv[1][i] - '0');
 
-x = is_number(argv[1]) + is_number(argv[2]);
-if (x > 0)
-{
-print_error();
-exit(98);
-}
+			if (res[k])
+				x += res[k] - '0';
+			res[k] = (x % 10) + '0';
+			res[k + 1] = (x / 10) + '0';
 
-for (arg1 = 0; argv[arg1] != '\0'; arg1++)
-;
-for (arg2 = 0; argv[arg2] != '\0'; arg2++)
-;
-
-_atoi(tab1, argv[1]);
-_atoi(tab2, argv[2]);
-
-s = malloc(sizeof(int) * arg1 + 1);
-
-for (i = 0; i < arg1; i++)
-{
-for (j = 0; j < arg2; j++)
-{
-x = tab1[i] * tab2[2];
-s[j] = x % 10;
-x /= 10;
-}
-}
-return (0);
+			k++;
+		}
+	}
+	print_result(k, res);
+	return (0);
 }
