@@ -65,7 +65,7 @@ char **strtow(char *str)
 	heigth = _heigth(str);
 	if (heigth == 0)
 		return (NULL);
-	p = malloc(sizeof(char *) * heigth);
+	p = malloc(sizeof(char *) * (heigth + 1));
 	if (p == NULL)
 		return (NULL);
 
