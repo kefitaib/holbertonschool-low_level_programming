@@ -78,7 +78,7 @@ char **strtow(char *str)
 		width = 0;
 		k = j;
 
-		while (str[k] != ' ')
+		while (str[k] != ' ' && str[k] != '\0')
 		{
 			width++;
 			k++;
