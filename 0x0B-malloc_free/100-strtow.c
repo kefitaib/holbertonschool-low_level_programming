@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 
 /**
  * allocation - allocate a space memory for a pointer.
@@ -12,15 +12,15 @@
 
 int allocation(char **p, int i, int width)
 {
-p[i] = malloc(sizeof(char) * width + 1);
-if (p[i] == NULL)
-{
-for (; i >= 0; i--)
-free(p[i]);
-free(p);
-return (0);
-}
-return (1);
+	p[i] = malloc(sizeof(char) * width + 1);
+	if (p[i] == NULL)
+	{
+		for (; i >= 0; i--)
+			free(p[i]);
+		free(p);
+		return (0);
+	}
+	return (1);
 }
 
 
@@ -33,17 +33,19 @@ return (1);
 
 int _heigth(char *str)
 {
-int i, heigth = 0;
-for (i = 0; str[i] != '\0'; i++)
-{
-if (str[i] != ' ')
-{
-heigth++;
-while (str[i] != ' ' && str[i] != '\0')
-i++;
-}
-}
-return (heigth);
+	int i = 0, heigth = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != ' ')
+		{
+			heigth++;
+			while (str[i] != ' ' && str[i] != '\0')
+				i++;
+		}
+		else
+			i++;
+	}
+	return (heigth);
 }
 
 /**
@@ -54,41 +56,38 @@ return (heigth);
 
 char **strtow(char *str)
 {
-int i, j, k = 0, l, heigth = 0, width;
-char **p = NULL;
-if (str == NULL || *str == '\0')
-return (NULL);
+	int i, j, k = 0, l, heigth = 0, width;
+	char **p = NULL;
 
-heigth = _heigth(str);
-p = malloc(sizeof(char *) * heigth + 1);
-if (p == NULL)
-return (NULL);
+	if (str == NULL || *str == '\0')
+		return (NULL);
 
-for (i = 0; i < heigth; i++)
-{
+	heigth = _heigth(str);
+	p = malloc(sizeof(char *) * heigth);
+	if (p == NULL)
+		return (NULL);
 
-while (str[j] == ' ')
-j++;
-width = 0;
-k = j;
+	for (i = 0; i < heigth; i++)
+	{
 
-while (str[k] != ' ')
-{
-width++;
-k++;
-}
+		while (str[j] == ' ')
+			j++;
+		width = 0;
+		k = j;
 
-if (allocation(p, i, width) == 0)
-return (NULL);
+		while (str[k] != ' ')
+		{
+			width++;
+			k++;
+		}
 
-for (l = 0; l < width; l++, j++)
-p[i][l] = str[j];
-p[i][l] = '\0';
-}
+		if (allocation(p, i, width) == 0)
+			return (NULL);
 
-if (allocation(p, i, width) == 0)
-return (NULL);
+		for (l = 0; l < width; l++, j++)
+			p[i][l] = str[j];
+		p[i][l] = '\0';
+	}
 
-p[i] = NULL;
-return (p);
+	return (p);
 }
