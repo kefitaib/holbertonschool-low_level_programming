@@ -167,5 +167,6 @@ int main(int argc, char **argv)
 	k = calcul(arg1, arg2, argv[1], argv[2], res);
 
 	print_result(k, res);
+	free(res);
 	return (0);
 }
