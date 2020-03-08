@@ -1,6 +1,22 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
+
+/**
+ * print_error - print "Error" with putchar.
+ *
+ * Return: integer.
+ */
+
+void print_error(void)
+{
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
+	_putchar('\n');
+}
+
 
 /**
  * print_result - print the result of the multiplication.
@@ -70,7 +86,7 @@ int is_number(char *s)
 
 
 /**
- * main -  multiplies two positive numbers.
+ * calcul -  multiplies two positive numbers.
  * @arg1 : length of the first argement.
  * @arg2 : length of the second argement.
  * @argv1 : the first argement.
@@ -119,13 +135,13 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		printf("Error");
+		print_error();
 		exit(98);
 	}
 
 	if (is_number(argv[1]) == 1 || is_number(argv[2]) == 1)
 	{
-		printf("Error");
+		print_error();
 		exit(98);
 	}
 
