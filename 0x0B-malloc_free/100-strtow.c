@@ -14,6 +14,7 @@ int allocation(char **p, int i, int width)
 	p[i] = malloc(sizeof(char) * width + 1);
 	if (p[i] == NULL)
 	{
+		i--;
 		for (; i >= 0; i--)
 			free(p[i]);
 		free(p);
@@ -65,6 +66,7 @@ char **strtow(char *str)
 	heigth = _heigth(str);
 	if (heigth == 0)
 		return (NULL);
+
 	p = malloc(sizeof(char *) * (heigth + 1));
 	if (p == NULL)
 		return (NULL);
