@@ -1,21 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
-/**
- * print_error - print "Error" with putchar.
- *
- * Return: integer.
- */
-
-void print_error(void)
-{
-	_putchar('E');
-	_putchar('r');
-	_putchar('r');
-	_putchar('o');
-	_putchar('r');
-	_putchar('\n');
-}
+#include <stdio.h>
 
 /**
  * print_result - print the result of the multiplication.
@@ -96,22 +81,24 @@ int is_number(char *s)
 
 int calcul(int arg1, int arg2, char *argv1, char *argv2, char *res)
 {
-	int i, j, k, x = 0, l = 1;
+	int i, j, k, x = 0, l = 0;
 
 	for (i = arg1 - 1; i >= 0; i--, l++)
 	{
 		k = l;
+		x = 0;
 		for (j = arg2 - 1; j >= 0; j--)
 		{
-			x = (argv2[j] - '0') * (argv1[i] - '0');
-
+			x += (argv2[j] - '0') * (argv1[i] - '0');
 			if (res[k])
 				x += res[k] - '0';
-			res[k] = (x % 10) + '0';
-			res[k + 1] = (x / 10) + '0';
 
+			res[k] = (x % 10) + '0';
+			x /= 10;
 			k++;
 		}
+		if (x > 0)
+			res[k] = x + '0';
 	}
 	return (k);
 }
@@ -132,13 +119,13 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		print_error();
+		printf("Error");
 		exit(98);
 	}
 
 	if (is_number(argv[1]) == 1 || is_number(argv[2]) == 1)
 	{
-		print_error();
+		printf("Error");
 		exit(98);
 	}
 
@@ -157,7 +144,7 @@ int main(int argc, char **argv)
 	res = malloc(sizeof(char) * (arg1 + arg2 + 1));
 	if (res == NULL)
 	{
-		print_error();
+		printf("Error");
 		exit(98);
 	}
 
