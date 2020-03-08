@@ -14,13 +14,12 @@ int allocation(char **p, int i, int width)
 	p[i] = malloc(sizeof(char) * width + 1);
 	if (p[i] == NULL)
 	{
-		i--;
-		for (; i >= 0; i--)
+		for (i -= 1; i >= 0; i--)
 			free(p[i]);
 		free(p);
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 
@@ -85,7 +84,7 @@ char **strtow(char *str)
 			k++;
 		}
 
-		if (allocation(p, i, width) == 0)
+		if (allocation(p, i, width) == 1)
 			return (NULL);
 
 		for (l = 0; l < width; l++, j++)
