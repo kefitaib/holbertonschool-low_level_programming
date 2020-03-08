@@ -34,6 +34,7 @@ int allocation(char **p, int i, int width)
 int _heigth(char *str)
 {
 	int i = 0, heigth = 0;
+
 	while (str[i] != '\0')
 	{
 		if (str[i] != ' ')
