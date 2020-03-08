@@ -41,6 +41,7 @@ int is_palindrome(char *s)
 {
 	char *p = s;
 	int x = 0, i = 0;
+
 	x = _strlen_recursion(s);
 	return (palin(p, x - 1, i));
 }
