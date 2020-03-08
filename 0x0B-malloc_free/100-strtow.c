@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * allocation - allocate a space memory for a pointer.
@@ -66,7 +65,7 @@ char **strtow(char *str)
 	heigth = _heigth(str);
 	if (heigth == 0)
 		return (NULL);
-	p = malloc(sizeof(char *) * heigth + 1);
+	p = malloc(sizeof(char *) * heigth);
 	if (p == NULL)
 		return (NULL);
 
