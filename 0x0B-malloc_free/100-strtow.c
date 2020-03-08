@@ -68,10 +68,7 @@ char **strtow(char *str)
 
 	p = malloc(sizeof(char *) * (heigth + 1));
 	if (p == NULL)
-	{
-		free(p);
 		return (NULL);
-	}
 
 	for (i = 0; i < heigth; i++)
 	{
