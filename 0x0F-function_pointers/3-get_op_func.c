@@ -28,7 +28,7 @@ int (*get_op_func(char *s))(int, int)
 			break;
 		i++;
 	}
-	if (i == sizeof(ops))
+	if (i == 5)
 		return (NULL);
 	return (ops[i].f);
 }
