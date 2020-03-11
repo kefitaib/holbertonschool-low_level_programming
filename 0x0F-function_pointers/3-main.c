@@ -12,6 +12,8 @@
 
 int main(int argc, char **argv)
 {
+	int (*f)(int, int);
+
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -31,7 +33,8 @@ int main(int argc, char **argv)
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
+	f = get_op_func(argv[2]);
+	printf("%d\n", f(atoi(argv[1]), atoi(argv[3])));
 
 	return (0);
 }
