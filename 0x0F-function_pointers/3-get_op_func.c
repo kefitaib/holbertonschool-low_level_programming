@@ -25,13 +25,9 @@ int (*get_op_func(char *s))(int, int)
 	while (ops[i].op != NULL)
 	{
 		if (strcmp(ops[i].op, s) == 0)
-			break;
+			return (ops[i].f);
 		i++;
 	}
-	if (i == 6)
-	{
-		printf("Error\n");
-		exit(99);
-	}
-	return (ops[i].f);
+	printf("Error\n");
+	exit(99);
 }
