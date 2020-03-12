@@ -14,18 +14,18 @@ int main(int ac, char **av)
 	char *f;
 	int i = 0;
 
-	f = (char *)main
-
 	if (ac != 2)
 	{
 		printf("Error");
-		exit(1);
+		return (1);
 	}
+
+	f = (char *)main;
 
 	if (atoi(av[1]) <= 0)
 	{
 		printf("Error");
-		exit(2);
+		return (2);
 	}
 
 	while (i < atoi(av[1]))
