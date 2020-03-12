@@ -28,7 +28,7 @@ int main(int ac, char **av)
 
 	while (i < atoi(av[1]))
 	{
-		printf("%.2x", (unsigned char)f[i]);
+		printf("%02x", (unsigned char)f[i]);
 		if (i != atoi(av[1]) - 1)
 		{
 			putchar(' ');
