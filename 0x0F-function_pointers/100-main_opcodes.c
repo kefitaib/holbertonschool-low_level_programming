@@ -4,34 +4,34 @@
 /**
  * main - prints the opcodes of its own main function.
  *
- * @argc: The operatornumber of argements.
- * @argv: an array of argements.
+ * @ac: The operatornumber of argements.
+ * @av: an array of argements.
  * Return: integer.
  */
 
-int main(int argc, char *argv[])
+int main(int ac, char *av[])
 {
 	char *f;
 	int i = 0;
 
-	if (argc != 2)
+	if (ac != 2)
 	{
-		printf("Error");
-		return (1);
+		printf("Error\n");
+		exit(1);
+	}
+
+	if (atoi(av[1]) <= 0)
+	{
+		printf("Error\n");
+		exit(2);
 	}
 
 	f = (char *)main;
 
-	if (atoi(argv[1]) <= 0)
-	{
-		printf("Error");
-		return (2);
-	}
-
-	while (i < atoi(argv[1]))
+	while (i < atoi(av[1]))
 	{
 		printf("%02x", (unsigned char)f[i]);
-		if (i != atoi(argv[1]) - 1)
+		if (i != atoi(av[1]) - 1)
 		{
 			putchar(' ');
 		}
