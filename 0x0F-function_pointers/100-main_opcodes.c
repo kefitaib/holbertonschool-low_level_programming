@@ -19,13 +19,13 @@ int main(int ac, char **av)
 	if (ac != 2)
 	{
 		printf("Error");
-		return (1);
+		exit(1);
 	}
 
 	if (atoi(av[1]) <= 0)
 	{
 		printf("Error");
-		return (2);
+		exit(2);
 	}
 
 	while (i < atoi(av[1]))
