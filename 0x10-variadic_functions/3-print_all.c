@@ -54,12 +54,9 @@ void res_string(va_list l)
 	char *s;
 
 	s = va_arg(l, char *);
-	if (s)
-	{
-		printf("%s", s);
-		return;
-		}
-	printf("(nil)");
+	if (!s)
+		s = "(nil)";
+	printf("%s", s);
 }
 
 
