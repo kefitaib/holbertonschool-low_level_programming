@@ -90,7 +90,6 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", sep);
 				(*fun_ptr_arr[j])(lst);
-				break;
 			}
 			j++;
 		}
