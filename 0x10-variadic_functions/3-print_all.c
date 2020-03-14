@@ -6,7 +6,6 @@
 /**
  * res_char - print a character.
  *
- * @s: type
  * @l: list of argements.
  */
 
@@ -19,7 +18,6 @@ void res_char(va_list l)
 /**
  * res_integer - print an integer.
  *
- * @s: type
  * @l: list of argements.
  */
 
@@ -33,7 +31,6 @@ void res_integer(va_list l)
 /**
  * res_float - print a float.
  *
- * @s: type
  * @l: list of argements.
  */
 
@@ -48,7 +45,6 @@ void res_float(va_list l)
 /**
  * res_string - print a string.
  *
- * @s: type
  * @l: list of argements.
  */
 
@@ -56,6 +52,7 @@ void res_float(va_list l)
 void res_string(va_list l)
 {
 	char *s;
+
 	s = va_arg(l, char *);
 	if (s)
 	{
@@ -69,7 +66,7 @@ void res_string(va_list l)
 
 /**
  * print_all - check the code for Holberton School students.
- *
+ * @format : list of the format of the variables to print.
  * Return: Always 0.
  */
 
@@ -90,7 +87,7 @@ void print_all(const char * const format, ...)
 		{
 			if (f[j] == format[i])
 			{
-			        (*fun_ptr_arr[j])(lst);
+				(*fun_ptr_arr[j])(lst);
 				if (format[i + 1] != '\0')
 					printf(", ");
 			}
