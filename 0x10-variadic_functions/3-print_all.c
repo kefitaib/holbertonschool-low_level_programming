@@ -88,8 +88,7 @@ void print_all(const char * const format, ...)
 			if (f[j] == format[i])
 			{
 				(*fun_ptr_arr[j])(lst);
-				if (format[i + 1] != '\0')
-					printf(", ");
+				printf(", ");
 			}
 			j++;
 		}
