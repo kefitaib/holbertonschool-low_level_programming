@@ -81,7 +81,7 @@ void print_all(const char * const format, ...)
 
 	va_start(lst, format);
 
-	while (format[i] != '\0')
+	while (format[i] != '\0' && format != NULL)
 	{
 		j = 0;
 		while (f[j] != '\0')
