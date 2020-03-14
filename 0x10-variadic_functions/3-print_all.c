@@ -74,10 +74,10 @@ void print_all(const char * const format, ...)
 {
 	va_list lst;
 	int i = 0, j;
-	char f[] = "fics", *sep = "";
+	char f[] = "cifs", *sep = "";
 
-	void (*fun_ptr_arr[])(va_list) = {res_float, res_integer,
-					 res_char, res_string};
+	void (*fun_ptr_arr[])(va_list) = {res_char, res_integer,
+					  res_float, res_string};
 
 	va_start(lst, format);
 
