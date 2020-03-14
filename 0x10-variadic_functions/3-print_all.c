@@ -54,9 +54,12 @@ void res_string(va_list l)
 	char *s;
 
 	s = va_arg(l, char *);
-	if (!s)
-		s = "(nil)";
-	printf("%s", s);
+	if (s)
+	{
+		printf("%s", s);
+		return;
+	}
+	printf("(nil)");
 }
 
 
@@ -78,7 +81,7 @@ void print_all(const char * const format, ...)
 
 	va_start(lst, format);
 
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
 		j = 0;
 		while (f[j] != '\0')
