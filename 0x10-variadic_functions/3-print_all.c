@@ -81,7 +81,7 @@ void print_all(const char * const format, ...)
 
 	va_start(lst, format);
 
-	while (format[i] != '\0' && format != NULL)
+	while (format[i] != '\0')
 	{
 		j = 0;
 		while (f[j] != '\0')
@@ -90,6 +90,7 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", sep);
 				(*fun_ptr_arr[j])(lst);
+				break;
 			}
 			j++;
 		}
