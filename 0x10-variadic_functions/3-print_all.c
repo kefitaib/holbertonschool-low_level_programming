@@ -74,10 +74,11 @@ void print_all(const char * const format, ...)
 {
 	va_list lst;
 	int i = 0, j;
-	char f[] = "fics";
+	char f[] = "fics", *sep = "";
 
 	void (*fun_ptr_arr[])(va_list) = {res_float, res_integer,
 					 res_char, res_string};
+
 	va_start(lst, format);
 
 	while (format[i] != '\0')
@@ -87,12 +88,14 @@ void print_all(const char * const format, ...)
 		{
 			if (f[j] == format[i])
 			{
+				printf("%s", sep);
 				(*fun_ptr_arr[j])(lst);
-				printf(", ");
+				break;
 			}
 			j++;
 		}
 		i++;
+		sep = ", ";
 	}
 	printf("\n");
 	va_end(lst);
