@@ -1,6 +1,7 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
-#include <stddef.h>
+#include <stdarg.h>
+#include <stdzrg.h>
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
