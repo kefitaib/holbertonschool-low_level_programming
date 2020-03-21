@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "lists.h"
-#include <stdio.h>
 
 
 /**
@@ -20,8 +19,6 @@ void free_list(list_t *head)
 		list = list->next;
 		i++;
 	}
-
-	printf("%u\n", i);
 
 	list = head;
 	while (i > 0)
