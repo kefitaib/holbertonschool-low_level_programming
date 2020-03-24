@@ -10,16 +10,17 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *l;
 
-	if (head)
-	{
-		l = head;
-		while (l)
-		{
-			if (l <= l->next)
-				return (l->next);
+	if (!head || (head && !head->next))
+		return (NULL);
 
-			l = l->next;
-		}
+	l = head;
+	while (l)
+	{
+		if (l <= l->next)
+			return (l->next);
+
+		l = l->next;
 	}
+
 	return (NULL);
 }
