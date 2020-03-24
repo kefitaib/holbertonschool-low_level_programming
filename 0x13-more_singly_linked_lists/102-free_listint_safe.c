@@ -9,7 +9,7 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *l;
+	listint_t *l, *tmp;
 	size_t i = 0;
 
 	if (*h)
@@ -17,17 +17,18 @@ size_t free_listint_safe(listint_t **h)
 		l = *h;
 		while (l)
 		{
-			*h = l->next;
-			if (l <= *h)
+			tmp = l->next;
+			if (l <= tmp)
 			{
 				free(l);
-				*h = NULL;
+				tmp = NULL;
 				break;
 			}
 			free(l);
-			l = *h;
+			l = tmp;
 			i++;
 		}
 	}
+	*h = tmp;
 	return (i);
 }
