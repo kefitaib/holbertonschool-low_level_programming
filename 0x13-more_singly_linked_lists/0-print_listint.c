@@ -8,13 +8,12 @@
  * Return: length of the list.
  */
 
-
 size_t print_listint(const listint_t *h)
 {
 	const listint_t *l = h;
 	size_t i = 0;
 
-	while (l != NULL)
+	while (l)
 	{
 		printf("%d\n", l->n);
 		l = l->next;
