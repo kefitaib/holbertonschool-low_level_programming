@@ -12,30 +12,15 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int t[64], r[64], i, j;
-	unsigned int x = 0;
+	unsigned long int x;
+	int i = 0;
 
-	for (i = 63; n > 0; i--)
+	x = n ^ m;
+	while ( > 0)
 	{
-		t[i] = n & 1;
-		n >>= 1;
+		if (x & 1)
+			i++;
+		x >>= 1;
 	}
-
-	for (j = 63; m > 0; j--)
-	{
-		r[j] = m & 1;
-		m >>= 1;
-	}
-
-	for (; i >= 0; i--)
-		t[i] = 0;
-
-	for (; j >= 0; j--)
-		r[j] = 0;
-
-	for (i = 0; i < 64; i++)
-		if (t[i] ^ r[i])
-			x++;
-
-	return (x);
+	return (i);
 }
