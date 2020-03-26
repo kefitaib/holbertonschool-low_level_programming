@@ -2,29 +2,6 @@
 #include "holberton.h"
 #include <stdio.h>
 
-/**
- * _pow - calculate the power of an integer.
- * @x : the integer .
- * @y : nubber of times.
- * Return: result int.
- */
-
-int _pow(int x, int y)
-{
-	int i, res = 1;
-
-	if (y == 0)
-		return (1);
-
-	if (y == 1)
-		return (x);
-
-	for (i = 0; i < y; i++)
-		res *= x;
-
-	return (res);
-}
-
 
 /**
  * binary_to_uint - converts a binary number to an unsigned int.
@@ -64,7 +41,7 @@ unsigned int binary_to_uint(const char *b)
 	s[i - j - 1] = '\0';
 
 	for (j = 0; s[j]; j++)
-	x += (s[j] - '0') * _pow(2, j);
+		x += (s[j] - '0') << j;
 
 	free(s);
 	return (x);
