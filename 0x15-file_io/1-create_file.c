@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * create_file - check the code for Holberton School students.
+ * create_file - creates a file.
  * @filename : name of a file.
  * @text_content : the content of the file.
  * Return: integer.
