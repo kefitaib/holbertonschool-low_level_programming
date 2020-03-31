@@ -228,7 +228,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	printf("ELF Header:\n  Magic:");
+	printf("  Magic:");
 
 	for (nb = 0; header.e_ident[nb]; nb++)
 		printf(" %.2x", header.e_ident[nb]);
