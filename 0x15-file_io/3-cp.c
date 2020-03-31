@@ -20,6 +20,7 @@ void test_close(int x)
 
 /**
  * test_read - check if the file was closed.
+ * @s : file name.
  * @x : the close result.
  * Return: void.
  */
@@ -37,6 +38,7 @@ void test_read(int x, char s[])
 
 /**
  * test_write - check if the file was closed.
+ * @s : file name.
  * @x : the close result.
  * Return: void.
  */
@@ -67,7 +69,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", av[1], av[2]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
