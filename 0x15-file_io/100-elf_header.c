@@ -218,10 +218,8 @@ int main(int ac, char **av)
 	}
 
 	fd = open(av[1], O_RDONLY);
-	test_open(fd);
 
 	nb = read(fd, &header, sizeof(Elf64_Ehdr));
-	test_read(nb, av[1]);
 
 	if (header.e_ident[0] != 0x7f && header.e_ident[1] != 'E' &&
 	    header.e_ident[2] != 'L' && header.e_ident[3] != 'F')
@@ -244,6 +242,5 @@ int main(int ac, char **av)
 
 
 	nb = close(fd);
-	test_close(nb);
 	return (0);
 }
