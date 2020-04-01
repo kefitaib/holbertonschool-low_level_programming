@@ -178,6 +178,8 @@ void _version(int x)
 	case 1:
 		printf("1 (current)\n");
 		break;
+	default:
+		printf("1 (current)\n");
 	}
 }
 
