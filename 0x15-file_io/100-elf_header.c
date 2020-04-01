@@ -211,7 +211,7 @@ void _magic(Elf64_Ehdr header)
 {
 	int nb;
 
-	printf("  Magic:");
+	printf("  Magic:  ");
 
 	for (nb = 0; nb < 16; nb++)
 		printf(" %.2x", header.e_ident[nb]);
@@ -285,7 +285,7 @@ void _abi_v(int x)
 	for (nb = 13; nb < 36; nb++)
 		putchar(' ');
 
-	printf("%d\n", x);
+	printf("%d  \n", x);
 }
 
 
