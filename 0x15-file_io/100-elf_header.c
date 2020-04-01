@@ -239,8 +239,6 @@ void _os_abi(Elf64_Ehdr header)
 		printf("UNIX - Linux\n");
 	else if (header.e_ident[EI_OSABI] == 0x04)
 		printf("UNIX - GNU Hurd\n");
-	else if (header.e_ident[EI_OSABI] == 0x05)
-		printf("<unknown: 53>\n");
 	else if (header.e_ident[EI_OSABI] == 0x06)
 		printf("UNIX - Solaris\n");
 	else if (header.e_ident[EI_OSABI] == 0x07)
@@ -253,13 +251,13 @@ void _os_abi(Elf64_Ehdr header)
 		printf("UNIX - Tru64\n");
 	else if (header.e_ident[EI_OSABI] == 0x0B)
 		printf("UNIX - Novell Modesto\n");
-	else if (header.e_ident[EI_OSABI] == 0xC)
+	else if (header.e_ident[EI_OSABI] == 0x0C)
 		printf("UNIX - OpenBSD\n");
-	else if (header.e_ident[EI_OSABI] == 0xD)
+	else if (header.e_ident[EI_OSABI] == 0x0D)
 		printf("UNIX - OpenVMS\n");
-	else if (header.e_ident[EI_OSABI] == 0xE)
+	else if (header.e_ident[EI_OSABI] == 0x0E)
 		printf("UNIX - NonStop Kernel\n");
-	else if (header.e_ident[EI_OSABI] == 0xF)
+	else if (header.e_ident[EI_OSABI] == 0x0F)
 		printf("UNIX - AROS\n");
 	else if (header.e_ident[EI_OSABI] == 0x10)
 		printf("UNIX - Fenix OS\n");
@@ -267,6 +265,8 @@ void _os_abi(Elf64_Ehdr header)
 		printf("UNIX - CloudABI\n");
 	else if (header.e_ident[EI_OSABI] == 0x12)
 		printf("UNIX - Stratus Technologies OpenVOS\n");
+	else
+		printf("<unknown: 53>\n");
 }
 
 
@@ -285,7 +285,7 @@ void _abi_v(int x)
 	for (nb = 13; nb < 36; nb++)
 		putchar(' ');
 
-	printf("%d  \n", x);
+	printf("%x\n", x);
 }
 
 
@@ -323,9 +323,7 @@ int main(int ac, char **av)
 	_class(header.e_ident[EI_CLASS]);
 	_data(header.e_ident[EI_DATA]);
 	_version(header.e_version);
-	printf("  OS/ABI:");
-	for (nb = 8; nb < 36; nb++)
-		putchar(' ');
+	printf("  %-35s", "OS/ABI:");
 	_os_abi(header);
 	_abi_v(header.e_ident[EI_ABIVERSION]);
 	_type(header.e_type);
