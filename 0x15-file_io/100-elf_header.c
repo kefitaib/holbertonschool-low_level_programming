@@ -63,7 +63,7 @@ void test_read(int x, char s[])
  * Return: void.
  */
 
-void _type(int x)
+void _type(unsigned int x)
 {
 	int nb;
 
@@ -75,6 +75,7 @@ void _type(int x)
 	{
 	case 0:
 		printf("NONE (No file type)\n");
+		break;
 	case 1:
 		printf("REL (Relocatable file)\n");
 		break;
@@ -87,11 +88,8 @@ void _type(int x)
 	case 4:
 		printf("CORE (Core file)\n");
 		break;
-	case 65280:
-		printf("\n");
-		break;
-	case 65535:
-		printf("\n");
+	default:
+		printf("Processor-specific\n");
 		break;
 	}
 }
@@ -116,6 +114,7 @@ void _class(int x)
 	{
 	case 0:
 		printf("Invalid class\n");
+		break;
 	case 1:
 		printf("ELF32\n");
 		break;
@@ -145,6 +144,7 @@ void _data(int x)
 	{
 	case 0:
 		printf("Invalid data encoding\n");
+		break;
 	case 1:
 		printf("2's complement, little endian\n");
 		break;
@@ -174,6 +174,7 @@ void _version(int x)
 	{
 	case 0:
 		printf("Invalid version\n");
+		break;
 	case 1:
 		printf("1 (current)\n");
 		break;
@@ -195,7 +196,96 @@ void _adr(Elf64_Ehdr header)
 	for (nb = 21; nb < 36; nb++)
 		putchar(' ');
 
-	printf("0x%u\n", (unsigned int)header.e_entry);
+	printf("0x%x\n", (unsigned int)header.e_entry);
+}
+
+
+/**
+ * _magic - Print.
+ * @header : type elf_file.
+ * Return: void.
+ */
+
+
+void _magic(Elf64_Ehdr header)
+{
+	int nb;
+
+	printf("  Magic:");
+
+	for (nb = 0; nb < 16; nb++)
+		printf(" %.2x", header.e_ident[nb]);
+
+	putchar('\n');
+}
+
+
+/**
+ * _os_abi - print type.
+ * @header : type elf_file.
+ * Return: void.
+ */
+
+
+void _os_abi(Elf64_Ehdr header)
+{
+	if (header.e_ident[EI_OSABI] == 0x00)
+		printf("UNIX - System V\n");
+	else if (header.e_ident[EI_OSABI] == 0x01)
+		printf("UNIX - HP-UX\n");
+	else if (header.e_ident[EI_OSABI] == 0x02)
+		printf("UNIX - NetBSD\n");
+	else if (header.e_ident[EI_OSABI] == 0x03)
+		printf("UNIX - Linux\n");
+	else if (header.e_ident[EI_OSABI] == 0x04)
+		printf("UNIX - GNU Hurd\n");
+	else if (header.e_ident[EI_OSABI] == 0x05)
+		printf("<unknown: 53>\n");
+	else if (header.e_ident[EI_OSABI] == 0x06)
+		printf("UNIX - Solaris\n");
+	else if (header.e_ident[EI_OSABI] == 0x07)
+		printf("UNIX - AIX\n");
+	else if (header.e_ident[EI_OSABI] == 0x08)
+		printf("UNIX - IRIX\n");
+	else if (header.e_ident[EI_OSABI] == 0x09)
+		printf("UNIX - FreeBSD\n");
+	else if (header.e_ident[EI_OSABI] == 0x0A)
+		printf("UNIX - Tru64\n");
+	else if (header.e_ident[EI_OSABI] == 0x0B)
+		printf("UNIX - Novell Modesto\n");
+	else if (header.e_ident[EI_OSABI] == 0xC)
+		printf("UNIX - OpenBSD\n");
+	else if (header.e_ident[EI_OSABI] == 0xD)
+		printf("UNIX - OpenVMS\n");
+	else if (header.e_ident[EI_OSABI] == 0xE)
+		printf("UNIX - NonStop Kernel\n");
+	else if (header.e_ident[EI_OSABI] == 0xF)
+		printf("UNIX - AROS\n");
+	else if (header.e_ident[EI_OSABI] == 0x10)
+		printf("UNIX - Fenix OS\n");
+	else if (header.e_ident[EI_OSABI] == 0x11)
+		printf("UNIX - CloudABI\n");
+	else if (header.e_ident[EI_OSABI] == 0x12)
+		printf("UNIX - Stratus Technologies OpenVOS\n");
+}
+
+
+/**
+ * _abi_v - print type.
+ * @x : type.
+ * Return: void.
+ */
+
+
+void _abi_v(int x)
+{
+	int nb;
+
+	printf("  ABI Version:");
+	for (nb = 13; nb < 36; nb++)
+		putchar(' ');
+
+	printf("%d\n", x);
 }
 
 
@@ -216,10 +306,10 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: elf_filename\n");
 		exit(97);
 	}
-
 	fd = open(av[1], O_RDONLY);
-
+	test_open(fd);
 	nb = read(fd, &header, sizeof(Elf64_Ehdr));
+	test_read(nb, av[1]);
 
 	if (header.e_ident[0] != 0x7f && header.e_ident[1] != 'E' &&
 	    header.e_ident[2] != 'L' && header.e_ident[3] != 'F')
@@ -228,19 +318,20 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	printf("  Magic:");
-
-	for (nb = 0; header.e_ident[nb]; nb++)
-		printf(" %.2x", header.e_ident[nb]);
-	putchar('\n');
-
+	printf("ELF Header:\n");
+	_magic(header);
 	_class(header.e_ident[EI_CLASS]);
 	_data(header.e_ident[EI_DATA]);
 	_version(header.e_version);
+	printf("  OS/ABI:");
+	for (nb = 8; nb < 36; nb++)
+		putchar(' ');
+	_os_abi(header);
+	_abi_v(header.e_ident[EI_ABIVERSION]);
 	_type(header.e_type);
 	_adr(header);
 
-
 	nb = close(fd);
+	test_close(nb);
 	return (0);
 }
