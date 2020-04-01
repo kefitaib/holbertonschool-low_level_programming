@@ -59,19 +59,23 @@ void test_read(int x, char s[])
 
 /**
  * _type - print type.
- * @x : type.
+ * @header : type.
  * Return: void.
  */
 
-void _type(unsigned int x)
+void _type(Elf64_Ehdr header)
 {
-	int nb;
+	int nb, i = 0;
+	char *a = (char *)&header.e_type;
 
 	printf("  Type:");
 	for (nb = 6; nb < 36; nb++)
 		putchar(' ');
 
-	switch (x)
+	if (header.e_ident[EI_DATA] == ELFDATA2MSB)
+		i = 1;
+
+	switch (a[i])
 	{
 	case 0:
 		printf("NONE (No file type)\n");
@@ -132,7 +136,7 @@ void _class(int x)
  */
 
 
-int _data(int x)
+void _data(int x)
 {
 	int nb;
 
@@ -144,13 +148,13 @@ int _data(int x)
 	{
 	case 0:
 		printf("Invalid data encoding\n");
-		return (0);
+		break;
 	case 1:
 		printf("2's complement, little endian\n");
-	        return (0);
+		break;
 	case 2:
 		printf("2's complement, big endian\n");
-		return (1);
+		break;
 	}
 }
 
@@ -193,13 +197,11 @@ void _version(int x)
 void _adr(Elf64_Ehdr header)
 {
 	int nb;
+	/* char *a = (char *)&header.e_ident; */
 
 	printf("  Entry point address:");
 	for (nb = 21; nb < 36; nb++)
 		putchar(' ');
-
-	if (header.e_ident[EI_DATA] == 2)
-		printf("0x%x\n", (unsigned int)header.e_entry);
 
 	printf("0x%x\n", (unsigned int)header.e_entry);
 
@@ -304,7 +306,7 @@ void _abi_v(int x)
 
 int main(int ac, char **av)
 {
-	int fd, nb, i;
+	int fd, nb;
 	Elf64_Ehdr header;
 
 	if (ac != 2)
@@ -327,12 +329,12 @@ int main(int ac, char **av)
 	printf("ELF Header:\n");
 	_magic(header);
 	_class(header.e_ident[EI_CLASS]);
-	i = _data(header.e_ident[EI_DATA]);
+	_data(header.e_ident[EI_DATA]);
 	_version(header.e_version);
 	printf("  %-35s", "OS/ABI:");
 	_os_abi(header);
 	_abi_v(header.e_ident[EI_ABIVERSION]);
-	_type(header.e_type[i]);
+	_type(header);
 	_adr(header);
 
 	nb = close(fd);
