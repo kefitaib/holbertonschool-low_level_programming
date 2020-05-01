@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_dlistint - doubly linked list
+ * print_dlistint - function that prints all the elements of a list
  * @h: first element of a double linked list.
  * Return: size of a list
  *
