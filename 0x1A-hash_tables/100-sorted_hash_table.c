@@ -17,7 +17,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 	if (size == 0)
 		return (NULL);
 
-	arr = malloc(sizeof(shash_node_t) * size);
+	arr = malloc(sizeof(shash_node_t *) * size);
 	if (!arr)
 		return (NULL);
 
