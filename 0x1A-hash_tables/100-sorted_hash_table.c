@@ -50,10 +50,11 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 void sorted_list(shash_table_t *ht, shash_node_t *new)
 {
-	shash_node_t *h = ht->shead, *tmp;
+	shash_node_t *h = NULL, *tmp = NULL;
 
 	if (!ht)
 		return;
+	h = ht->shead;
 	if (!h)
 	{
 		ht->shead = new;
@@ -129,7 +130,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	shash_node_t *new = NULL, **arr = NULL;
-	char *val = "", *k = NULL;
+	char *val = NULL, *k = NULL;
 
 	if (!key || !ht)
 		return (0);
