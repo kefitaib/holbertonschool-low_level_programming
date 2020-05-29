@@ -50,11 +50,8 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 void sorted_list(shash_table_t *ht, shash_node_t *new)
 {
-	shash_node_t *h = NULL, *tmp = NULL;
+	shash_node_t *h = ht->shead, *tmp = NULL;
 
-	if (!ht)
-		return;
-	h = ht->shead;
 	if (!h)
 	{
 		ht->shead = new;
@@ -208,10 +205,11 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 void shash_table_print(const shash_table_t *ht)
 {
-	shash_node_t *tmp = ht->shead;
+	shash_node_t *tmp = NULL;
 
 	if (ht)
 	{
+		tmp = ht->shead;
 		putchar('{');
 		while (tmp)
 		{
@@ -233,10 +231,11 @@ void shash_table_print(const shash_table_t *ht)
 
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	shash_node_t *tmp = ht->stail;
+	shash_node_t *tmp = NULL;
 
 	if (ht)
 	{
+		tmp = ht->stail;
 		putchar('{');
 		while (tmp)
 		{
