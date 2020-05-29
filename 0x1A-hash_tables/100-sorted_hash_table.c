@@ -23,15 +23,18 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 	ht = malloc(sizeof(shash_table_t));
 	if (!ht)
+	{
+		free(ht);
 		return (NULL);
+	}
+
+	for (; i < size; i++)
+		arr[i] = NULL;
 
 	ht->size = size;
 	ht->array = arr;
 	ht->shead = NULL;
 	ht->stail = NULL;
-
-	for (; i < size; i++)
-		ht->array[i] = NULL;
 
 	return (ht);
 }
@@ -127,7 +130,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *new = NULL, **arr = NULL;
 	char *val = "", *k = NULL;
 
-	if (!key)
+	if (!key || !ht)
 		return (0);
 
 	k = strdup(key);
