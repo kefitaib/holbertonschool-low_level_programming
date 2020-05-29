@@ -52,6 +52,8 @@ void sorted_list(shash_table_t *ht, shash_node_t *new)
 {
 	shash_node_t *h = ht->shead, *tmp;
 
+	if (!ht)
+		return;
 	if (!h)
 	{
 		ht->shead = new;
