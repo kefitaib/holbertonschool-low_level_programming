@@ -38,11 +38,11 @@ int check_key(hash_node_t *l, const char *k, char *val)
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index;
+	unsigned long int index = 0;
 	hash_node_t *new = NULL, **arr = NULL;
-	char *val = "", *k = NULL;
+	char *val = NULL, *k = NULL;
 
-	if (!key)
+	if (!key || !ht)
 		return (0);
 
 	if (value)
