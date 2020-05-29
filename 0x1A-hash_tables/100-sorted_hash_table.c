@@ -96,7 +96,7 @@ void sorted_list(shash_table_t *ht, shash_node_t *new)
  * Return: 1 if it succeeded, 0 otherwise.
  */
 
-int scheck_key(shash_node_t *l, char *k, char *val)
+int scheck_key(shash_node_t *l, const char *k, char *val)
 {
 	shash_node_t *tmp = l;
 
@@ -106,7 +106,6 @@ int scheck_key(shash_node_t *l, char *k, char *val)
 		{
 			free(tmp->value);
 			tmp->value = val;
-			free(k);
 			return (1);
 		}
 		tmp = tmp->next;
@@ -132,22 +131,22 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	if (!key || !ht)
 		return (0);
-
-	k = strdup(key);
-	if (!k)
-		return (0);
 	if (value)
 	{
 		val = strdup(value);
 		if (!val)
-		{
-			free(k);
 			return (0);
-		}
 	}
 	index = key_index((unsigned char *)key, ht->size);
-	if (scheck_key(ht->array[index], k, val) == 1)
+	if (scheck_key(ht->array[index], key, val) == 1)
 		return (1);
+
+	k = strdup(key);
+	if (!k)
+	{
+		free(val);
+		return (0);
+	}
 	new = malloc(sizeof(shash_node_t));
 	if (!new)
 	{
