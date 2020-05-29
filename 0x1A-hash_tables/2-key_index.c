@@ -1,9 +1,10 @@
 #include "hash_tables.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ * key_index - check the code for Holberton School students.
+ * @key: key for hte new node.
+ * @size: size of the hash table.
+ * Return: void.
  */
 
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
