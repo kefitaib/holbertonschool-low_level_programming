@@ -9,7 +9,7 @@
  * Return: 1 if it succeeded, 0 otherwise.
  */
 
-int check_key(hash_node_t *l, char *k, char *val)
+int check_key(hash_node_t *l, const char *k, char *val)
 {
 	hash_node_t *tmp = l;
 
@@ -19,7 +19,6 @@ int check_key(hash_node_t *l, char *k, char *val)
 		{
 			free(tmp->value);
 			tmp->value = val;
-			free(k);
 			return (1);
 		}
 		tmp = tmp->next;
@@ -45,23 +44,23 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!key)
 		return (0);
-	k = strdup(key);
-	if (!k)
-		return (0);
 
 	if (value)
 	{
 		val = strdup(value);
 		if (!val)
-		{
-			free(k);
 			return (0);
-		}
 	}
 	index = key_index((unsigned char *)key, ht->size);
-	if (check_key(ht->array[index], k, val) == 1)
+	if (check_key(ht->array[index], key, val) == 1)
 		return (1);
 
+	k = strdup(key);
+	if (!k)
+	{
+		free(val);
+		return (0);
+	}
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 	{
