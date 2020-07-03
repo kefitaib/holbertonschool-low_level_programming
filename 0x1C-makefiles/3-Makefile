@@ -7,13 +7,13 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	rm -rf $(NAME) *~
+	rm -f *~ $(NAME)
 
 oclean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean:
-	rm rm -rf $(NAME) *~ $(OBJ)
+	rm -f $(NAME) *~ $(OBJ)
 
 re:
 	$(CC) $(OBJ) -o $(NAME)
