@@ -12,6 +12,23 @@ void reset(char *str)
 		*(str++) = '\0';
 }
 
+
+/**
+ * _strlen - returns the length of a string.
+ * @s : string.
+ * Return: void.
+ */
+
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+
 /**
  * print_number - prints an integer.
  * @n: No parameters
@@ -57,7 +74,7 @@ void print_number(int n)
 		}
 	}
 
-	write(1, s, strlen(s));
+	write(1, s, _strlen(s));
 	reset(s);
 }
 
@@ -87,11 +104,12 @@ int linear_search(int *array, size_t size, int value)
 		write(1, "] = [", 5);
 		print_number(array[i]);
 		write(1, "]\n", 2);
-		i++;
-		reset(s);
 
 		if (array[i] == value)
 			return ((int)i);
+
+		i++;
+		reset(s);
 	}
 
 	return (-1);
