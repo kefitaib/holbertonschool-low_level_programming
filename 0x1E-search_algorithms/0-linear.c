@@ -15,11 +15,10 @@ void reset(char *str)
 /**
  * print_number - prints an integer.
  * @n: No parameters
- * @msg: string
- * Return: string
+ * Return: void
  */
 
-char *print_number(int n, char *msg)
+void print_number(int n)
 {
 	int x, i = 0, j, n1, n2 = n, k = 1, m = 0;
 	char s[20];
@@ -58,9 +57,8 @@ char *print_number(int n, char *msg)
 		}
 	}
 
-	strcat(msg, s);
+	write(1, s, strlen(s));
 	reset(s);
-	return (msg);
 }
 
 
@@ -87,12 +85,11 @@ int linear_search(int *array, size_t size, int value)
 		if (array[i] == value)
 			return ((int)i);
 
-		strcat(s, "Value checked array[");
-		print_number((int)i, s);
-		strcat(s, "] = [");
-		print_number(array[i], s);
-		strcat(s, "]\n");
-		write(1, s, strlen(s));
+		write(1, "Value checked array[", 20);
+		print_number((int)i);
+		write(1, "] = [", 5);
+		print_number(array[i]);
+		write(1, "]\n", 2);
 		i++;
 		reset(s);
 	}
