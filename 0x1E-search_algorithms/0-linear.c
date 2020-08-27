@@ -82,9 +82,6 @@ int linear_search(int *array, size_t size, int value)
 
 	while (i < size)
 	{
-		if (array[i] == value)
-			return ((int)i);
-
 		write(1, "Value checked array[", 20);
 		print_number((int)i);
 		write(1, "] = [", 5);
@@ -92,6 +89,9 @@ int linear_search(int *array, size_t size, int value)
 		write(1, "]\n", 2);
 		i++;
 		reset(s);
+
+		if (array[i] == value)
+			return ((int)i);
 	}
 
 	return (-1);
