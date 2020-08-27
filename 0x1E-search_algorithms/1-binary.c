@@ -31,11 +31,7 @@ int binary_search(int *array, size_t size, int value)
 		}
 		printf("\n");
 
-		if ((int)i == x + 1)
-			x = (((size - i) - 1) / 2) + i;
-
-		else
-			x = ((size - 1) / 2);
+		x = ((size + i) - 1) / 2;
 
 		if (array[x] == value)
 			return ((int)i);
